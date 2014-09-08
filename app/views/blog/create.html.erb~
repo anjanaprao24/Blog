@@ -1,0 +1,45 @@
+<div class="container">
+
+<% if !flash[:error].nil? %> 
+<div class="alert alert-danger">
+<h5 style="color:red"><%= flash[:error] %></h5> 
+<br>
+</div>
+<% end %>
+
+<h4 style="color:red">Create New Post:</h4>
+
+<%= form_for @post, url: { action: "add" }, :html => {:multipart => true } do |f| %>
+ 
+
+<table>
+<tr>
+
+  <th>  <%= f.label :title %> </th>
+  <td>  <%= f.text_field :title %> </td>
+</tr> 
+<tr>
+   <th> <%= f.label :content %> </th>
+   <td> <%= f.text_area :content ,rows:10 ,cols:28 %></td>
+</tr>
+<tr>   
+   <th> <%= f.label :Attachment %> </th>
+   <td>	<%= f.file_field :pic %></td>
+  
+        
+ 
+</tr>
+<tr></tr>
+
+ 
+
+
+
+ </table>
+<br>
+   <th> <%= f.submit %></th>
+
+
+
+<% end %>
+</div>

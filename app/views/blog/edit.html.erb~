@@ -1,0 +1,32 @@
+<div class="container">
+
+<span class="glyphicon glyphicon-backward"> </span>
+<th><%= link_to "BACK", {:action => 'list'} %></th>
+
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+
+<span class="glyphicon glyphicon-home"> </span>
+<th><%= link_to "HOME", {:action => 'welcome'} %></th>
+<br><br>
+<br>
+<table>
+<%= form_tag :action =>'update', :id => @edit_details  do %>
+<tr>
+<th>Title:</th>
+<td><%= text_field 'edit_details', 'title', "size" => 20 %></td>
+</tr>
+
+<tr>
+<th>Content:</th>
+<td><%= text_area 'edit_details', 'content', "rows" => 10 , "cols" => 30 %></td>
+</tr>
+
+
+</table>
+<br><br>
+<%= submit_tag ("SAVE CHANGES") %>
+<% end %>
+<br><br>
+</div>
+
+

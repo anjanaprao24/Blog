@@ -1,0 +1,45 @@
+<div class="container">
+<span class="glyphicon glyphicon-home"> </span>
+<%= link_to "HOME",'/blog/welcome' %>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<center>
+<h3>SIGN-IN</h3>
+<div class="jumbotron">
+<div class="input-group input-group-sm">
+<%= form_tag("/users/check_login" , :method=>"post") do %>
+<% if !flash[:notice].nil? %>
+<h5 style ="color:red">* <%= flash[:notice] %></h5>
+<% end %>
+<table>
+  <tr> 
+    <td> <span class="glyphicon glyphicon-user">Username:</span></td>
+    <td>&nbsp;&nbsp; </td>
+    <td><input type="text" class="form-control" placeholder="Username" name="name"></td>
+  </tr>
+
+   <tr>
+   <td>&nbsp;</td>
+   </tr>
+
+   <tr>
+   <td> <span class="glyphicon glyphicon-lock">Password:</span></td>
+   <td>&nbsp;&nbsp; </td>
+   <td> <input type="password" class="form-control" placeholder="Password" name="password"> </td>
+   </tr>
+
+</table>
+
+</div>
+  <br>
+  <p><%= submit_tag("LOGIN") %></p>
+  <br>
+   
+   New user ? <%= link_to "Register Here !",'/users/register' %>
+   
+</div>
+<% end %>
+ </center>
+
+<br><br> 
+
+</div>

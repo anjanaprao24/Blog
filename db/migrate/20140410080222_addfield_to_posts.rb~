@@ -1,0 +1,8 @@
+class AddfieldToPosts < ActiveRecord::Migration
+  def up
+  add_column :posts, :likes , :string
+  end
+
+  def down
+  end
+end

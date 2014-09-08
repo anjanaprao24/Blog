@@ -1,0 +1,56 @@
+<div class="container">
+
+<span class="glyphicon glyphicon-backward"> </span>
+<th><%= link_to "BACK", {:action => 'list'} %></th>
+
+<br>
+
+<h3>Title: <%= @detail.title %></h3>
+
+<br><br>
+
+<p><%= @detail.content %></p>
+<br>
+
+  <%= image_tag @detail.pic.url %>
+
+<br><br>
+
+<td><span class="glyphicon glyphicon-thumbs-up"> </span>
+<th><%= link_to "LIKE", {:action => 'like_count', :id => @detail.id } %></th>
+<span class="badge"><%= @detail.likes %></span>
+
+<h2>Comments</h2>
+<table class="table">
+<% @detail.comments.each do |comment| %>
+
+<tr>
+<td><%= comment.commenter %></td>
+<td><%= comment.body %> </td>
+<td><%= time_ago_in_words(comment.created_at) %> ago </td>
+</tr>
+
+<% end %>
+</table>
+
+<hr>
+<br><br>
+
+<h2>Add a comment:</h2>
+<%= form_for([@detail, @detail.comments.build]) do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :commenter %>
+  </p>
+  <p>
+    <%= f.label :comments %><br>
+    <%= f.text_area :body , :rows=>8 , :cols=>25 %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+ 
+
+</div>
+

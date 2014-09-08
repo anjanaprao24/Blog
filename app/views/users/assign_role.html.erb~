@@ -1,0 +1,8 @@
+<div class="container">
+<% @user_role.each do |user| %>
+<% user.update_attribute(:role,true) %>
+<% end %>
+ROLE CHANGED TO ADMIN
+<br>
+<%= link_to "BACK" ,'/blog/list' %>
+</div>

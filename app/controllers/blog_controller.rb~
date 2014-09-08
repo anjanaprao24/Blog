@@ -1,0 +1,88 @@
+class BlogController < ApplicationController
+  layout 'standard'  
+  before_filter :authorize , :only=>[:_list , :list]
+  def welcome
+  end
+
+  def create
+  @post=Post.new
+  end
+
+  def add
+  post=Post.new(params[:post])
+  if !post.valid?
+  flash[:error] = post.errors.full_messages.join("<br>").html_safe
+  redirect_to :action =>'create'
+  return
+  end
+  post.save
+  flash[:notice] = "POST CREATED !!"
+  end
+
+  def list
+  @post = Post.all
+  @users = User.all
+  end
+
+  def _list
+  session[:name]
+  @name= User.find(:all , :conditions =>{:name => params[:id]})
+  @post = Post.all
+  end
+ 
+  def show
+  @detail = Post.find(params[:id])
+  end
+
+  def dashboard
+  
+  end
+
+  def edit
+  @edit_details = Post.find(params[:id])
+  end
+
+  def update
+  @post = Post.find(params[:id])
+  if @post.update_attributes(params[:edit_details])
+   
+  redirect_to :action=>'show' , :id=>@post
+  end
+  end
+
+  def delete
+  @delete_post = Post.find(params[:id])
+  Post.delete(@delete_post)
+  redirect_to :action =>'list'
+  end  
+ 
+  def view_comments
+  @view=Comment.find(params[:id])
+  end
+
+  def delete_comments
+  @delete_id= Comment.find(params[:id])
+  Comment.delete(@delete_id)
+  redirect_to :action=>'list' 
+  end
+
+  
+  def like_count
+  post = Post.find(params[:id])
+  post.increment(:likes)
+  post.save
+  redirect_to :action=>'show' , :id=>post
+  end
+
+
+  private
+
+  def authorize
+   unless User.find_by_name(session[:name])
+   flash[:notice] = "Please log in"
+   redirect_to(:controller => "users", :action => "login")
+  end
+  end
+ 
+ 
+end

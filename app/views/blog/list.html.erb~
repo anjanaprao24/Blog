@@ -1,0 +1,56 @@
+<div class="container">
+
+<span class="glyphicon glyphicon-backward"> </span>
+<th><%= link_to "BACK", {:action => 'dashboard'} %></th>
+
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+
+<span class="glyphicon glyphicon-home"> </span>
+<th><%= link_to "HOME", {:action => 'welcome'} %></th>
+
+
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+
+<span class="glyphicon glyphicon-off"> </span>
+<th><%= link_to "LOGOUT", {:controller=>'users' , :action => 'logout'} %></th>
+
+<br><br>
+
+<h3>List Of Posts:</h3>
+
+<br>
+<table>
+<% @post.each do |p| %>
+<tr>
+<th><h5><%= p.title %></th> 
+
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+
+<td><span class="glyphicon glyphicon-book"> </span>
+<td><%= link_to "Read", {:action => 'show', :id => p.id} %></td>
+
+
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+
+<td><span class="glyphicon glyphicon-pencil"></span>
+<td><%= link_to "Edit", {:action => 'edit', :id => p.id} %></td>
+
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+
+<td><span class="glyphicon glyphicon-trash"></span>
+<td><%= link_to "Delete", {:action => 'delete', :id => p.id }%>
+</td>
+
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+
+<td><span class="glyphicon glyphicon-eye-open"></span>
+<td><%= link_to "View Comments", {:action => 'view_comments', :id => p.comments }%>
+</td>
+<% end %>
+
+</tr>
+<%= link_to "View newly Registerd Users" , {:controller=>'users' , :action=>'show'}  %>
+
+
+</table>
+</div>

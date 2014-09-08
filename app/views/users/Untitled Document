@@ -1,0 +1,7 @@
+<div class="container">
+<% @user_role.each do |user| %>
+Status: Role is Assingned(ADMIN)<%= user.role =true  %>
+<% user.save %>
+<% end %>
+<%= link_to "HOME" ,'/blog/welcome' %>
+<\div>

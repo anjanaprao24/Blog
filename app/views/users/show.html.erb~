@@ -1,0 +1,14 @@
+<div class="container">
+
+<th>NAME &nbsp;&nbsp; EMAIL &nbsp;&nbsp; ROLE(T/F)</th>
+
+<%= form_tag("/users/assign_role" ,:method =>"post") do %>
+<% @user.each do |user| %>
+<li><%= check_box_tag("roles[]", user.id ) %>&nbsp;&nbsp; <%= user.name %>--->&nbsp;&nbsp; 
+<%= user.email %>-----> <%= user.role %></li>
+<% end %>
+</ul>
+<%= submit_tag("ASSIGN ROLE") %>
+<% end %>
+</div>
+

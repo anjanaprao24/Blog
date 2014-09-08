@@ -1,0 +1,18 @@
+<div class="container">
+
+<span class="label label-warning" style="font-size:15px;">
+<span class="glyphicon glyphicon-pencil"></span>
+<%= link_to '/blog/create' do %>CREATE
+<% end %></span>&nbsp;&nbsp;
+
+<span class="label label-warning" style="font-size:15px;">
+<span class="glyphicon glyphicon-eye-open"></span>
+<%= link_to '/blog/list' do %>VIEW
+<% end %></span>&nbsp;&nbsp;
+
+
+<span class="glyphicon glyphicon-off"> </span>
+<%= link_to "LOGOUT", {:controller=>'users' , :action => 'logout'} %>
+<br><br>
+
+</div>

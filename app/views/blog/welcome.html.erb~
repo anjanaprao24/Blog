@@ -1,0 +1,14 @@
+<div class="container">
+<% if !flash[:notice].nil? %>
+<%= flash[:notice] %>
+<% end %>
+<span class="label label-info" style="font-size:15px; ">
+<%= link_to '/blog/_list' do %>LIST-POSTS<% end %>
+</span>
+&nbsp;&nbsp;
+<span class="label label-info" style="font-size:15px;">
+<%= link_to '/users/login' do %>SIGN-IN<% end %></span>&nbsp;&nbsp;
+<br>
+
+<br>
+</div>

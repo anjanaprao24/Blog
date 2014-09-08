@@ -1,0 +1,81 @@
+<div class="container">
+
+<center>
+<h3>SIGN-UP</h3>
+<div class="jumbotron">
+<div class="input-group input-group-sm">
+
+<%= form_tag( "/users/create" , :method=>"post" ) do %>
+<% if !flash[:notice].nil? %>
+<h5 style ="color:red">* <%= flash[:notice] %></h5>
+<% end %>
+
+<% if !flash[:error].nil? %>
+<h5 style ="color:red"><%= flash[:error] %></h5>
+<% end %>
+
+<table>
+  <tr> 
+
+    <td> <span class="glyphicon glyphicon-user">Username:</span></td>
+    <td>&nbsp;&nbsp; </td>
+ <td><input type="text" class="form-control" placeholder="Username" name="name">
+   </td>
+  </tr>
+
+   <tr>
+   <td>&nbsp;</td>
+   </tr>
+
+   <tr>
+   <td> <span class="glyphicon glyphicon-lock">Password:</span></td>
+   <td>&nbsp;&nbsp; </td>
+   <td> <input type="password" class="form-control" placeholder="Password" name="password"> </td>
+   </tr>
+
+    <tr>
+   <td>&nbsp;</td>
+   </tr>
+    
+
+   <tr>
+   <td> <span class="glyphicon glyphicon-lock">Confirm Password:</span></td>
+   <td>&nbsp;&nbsp; </td>
+   <td> <input type="password" class="form-control" placeholder="Confirm Password"   name="password_confirmation"> </td>
+   </tr>
+   
+     <tr>
+   <td>&nbsp;</td>
+   </tr>
+    
+
+   <tr>
+   <td> <span class="glyphicon glyphicon-envelope">Email:</span></td>
+   <td>&nbsp;&nbsp; </td>
+   <td> <input type="text" class="form-control" placeholder="Email-id" name="email"> </td>
+   </tr>
+
+    <tr>
+    <td>Select Role </td>
+    <td><%= select_tag :role, User::ROLES, :to_s, :humanize %> </td>
+    </tr>
+
+
+    
+
+</table>
+
+</div>
+  <br>
+  <p><%= submit_tag("SUBMIT") %></p>
+  <br>
+   
+   
+</div>
+<% end %>
+ </center>
+
+
+
+</div>
+

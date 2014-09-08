@@ -1,0 +1,11 @@
+<div class="container">
+<span class="glyphicon glyphicon-backward"> </span>
+<th><%= link_to "BACK", {:action => 'list'} %></th>
+<br>
+<% if !flash[:notice].nil? %>
+<div class="alert alert-success">
+<%= flash[:notice] %>
+</div>
+<% end %>
+</div>
+</div>

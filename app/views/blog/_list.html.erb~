@@ -1,0 +1,36 @@
+<div class="container">
+<% if !flash[:notice].nil? %>
+<%= flash[:notice] %>
+<% end %>
+<br>
+<% @name.each do |detail| %>
+<h3> Welcome <%= detail.name %> ,</h3>
+<% end %>
+<br>
+<%= @id %>
+<span class="glyphicon glyphicon-home"> </span>
+<th><%= link_to "HOME", {:action => 'welcome'} %></th>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<th><%= link_to "LOGOUT", {:controller=>'users' , :action => 'logout'} %></th>
+<br>
+
+<h3>List Of Posts:</h3>
+
+<br>
+<table>
+<% @post.each do |p| %>
+<tr>
+<th><h5><%= p.title %></th> 
+
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+
+<td><span class="glyphicon glyphicon-book"> </span>
+<td><%= link_to "READ", {:action => 'show', :id => p.id} %></td>
+
+
+
+
+<% end %>
+
+</table>
+</div>

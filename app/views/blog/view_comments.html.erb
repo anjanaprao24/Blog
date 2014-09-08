@@ -1,0 +1,14 @@
+<div class="container">
+<br>
+Comments for the Post  
+<br>
+<table class="table">
+<% @view.each do |comment| %>
+<tr>
+<th><%= comment.commenter %></th>
+<td><%= comment.body %></td>
+<td><%= link_to "DELETE" , {:action =>'delete_comments' , :id => comment.id } %>
+</tr>
+<% end %>
+</table>
+</div>
